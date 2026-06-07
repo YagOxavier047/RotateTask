@@ -5,8 +5,10 @@ import {
   GoogleAuthProvider, 
   GithubAuthProvider, 
   sendEmailVerification,
-  updateProfile,  // ✅ Adicionar esta importação
-  User 
+  updateProfile,
+  deleteUser,
+  User,
+  UserCredential
 } from "firebase/auth";
 import { auth } from "@/lib/firebase";
 
@@ -17,11 +19,7 @@ export const authService = {
   // Cadastro com envio de e-mail de verificação
   async register(email: string, password: string, name: string) {
     const userCredential = await createUserWithEmailAndPassword(auth, email, password);
-    
-    // ✅ Usar a função updateProfile importada
     await updateProfile(userCredential.user, { displayName: name });
-    
-    // Enviar e-mail de confirmação
     await sendEmailVerification(userCredential.user);
     return userCredential.user;
   },
@@ -49,5 +47,24 @@ export const authService = {
   // Obter usuário atual
   getCurrentUser(): User | null {
     return auth.currentUser;
+  },
+
+  // ✅ Excluir conta do usuário
+  async deleteAccount() {
+    const user = auth.currentUser;
+    if (!user) {
+      throw new Error("Nenhum usuário autenticado");
+    }
+    await deleteUser(user);
+    return true;
+  },
+
+  // ✅ Reautenticar usuário (necessário antes de excluir conta)
+  async reauthenticate(password: string): Promise<UserCredential> {
+    const user = auth.currentUser;
+    if (!user || !user.email) {
+      throw new Error("Usuário não autenticado");
+    }
+    return await signInWithEmailAndPassword(auth, user.email, password);
   }
 };
