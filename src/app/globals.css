@@ -57,3 +57,218 @@ body {
 html {
   scroll-behavior: smooth;
 }
+/* ... seu código existente ... */
+
+/* Alto Contraste */
+.high-contrast {
+  filter: contrast(1.5);
+}
+
+.high-contrast body {
+  background-color: #000 !important;
+  color: #fff !important;
+}
+
+.high-contrast a,
+.high-contrast button {
+  color: #ff0 !important;
+  text-decoration: underline !important;
+}
+
+.high-contrast .bg-white {
+  background-color: #000 !important;
+  border: 2px solid #fff !important;
+}
+
+.high-contrast .text-gray-900,
+.high-contrast .text-black {
+  color: #fff !important;
+}
+
+.high-contrast .text-gray-600,
+.high-contrast .text-gray-700 {
+  color: #ddd !important;
+}
+
+/* Dark Mode */
+.dark {
+  background-color: #1a1a1a;
+}
+
+.dark body {
+  background-color: #1a1a1a !important;
+  color: #e5e5e5 !important;
+}
+
+.dark .bg-white {
+  background-color: #2d2d2d !important;
+}
+
+.dark .bg-gray-50 {
+  background-color: #1a1a1a !important;
+}
+
+.dark .text-black,
+.dark .text-gray-900 {
+  color: #e5e5e5 !important;
+}
+
+.dark .text-gray-600,
+.dark .text-gray-700 {
+  color: #a0a0a0 !important;
+}
+
+.dark .border-gray-200 {
+  border-color: #404040 !important;
+}
+
+/* Animações */
+@keyframes blob {
+  0% {
+    transform: translate(0px, 0px) scale(1);
+  }
+  33% {
+    transform: translate(30px, -50px) scale(1.1);
+  }
+  66% {
+    transform: translate(-20px, 20px) scale(0.9);
+  }
+  100% {
+    transform: translate(0px, 0px) scale(1);
+  }
+}
+
+.animate-blob {
+  animation: blob 7s infinite;
+}
+
+.animation-delay-2000 {
+  animation-delay: 2s;
+}
+
+.animation-delay-4000 {
+  animation-delay: 4s;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+/* Alto Contraste */
+.high-contrast {
+  filter: contrast(1.5);
+}
+
+.high-contrast body {
+  background-color: #000 !important;
+  color: #fff !important;
+}
+
+.high-contrast a,
+.high-contrast button {
+  color: #ff0 !important;
+  text-decoration: underline !important;
+}
+
+.high-contrast .bg-white {
+  background-color: #000 !important;
+  border: 2px solid #fff !important;
+}
+
+.high-contrast .text-gray-900,
+.high-contrast .text-black {
+  color: #fff !important;
+}
+
+.high-contrast .text-gray-600,
+.high-contrast .text-gray-700 {
+  color: #ddd !important;
+}
+
+/* Dark Mode */
+.dark {
+  background-color: #1a1a1a;
+}
+
+.dark body {
+  background-color: #1a1a1a !important;
+  color: #e5e5e5 !important;
+}
+
+.dark .bg-white {
+  background-color: #2d2d2d !important;
+}
+
+.dark .bg-gray-50 {
+  background-color: #1a1a1a !important;
+}
+
+.dark .text-black,
+.dark .text-gray-900 {
+  color: #e5e5e5 !important;
+}
+
+.dark .text-gray-600,
+.dark .text-gray-700 {
+  color: #a0a0a0 !important;
+}
+
+.dark .border-gray-200 {
+  border-color: #404040 !important;
+}
+
+/* Foco em Leitura */
+.reading-focus nav,
+.reading-focus aside,
+.reading-focus footer,
+.reading-focus .sidebar,
+.reading-focus .navbar {
+  opacity: 0.3 !important;
+  pointer-events: none !important;
+}
+
+.reading-focus main {
+  max-width: 800px !important;
+  margin: 0 auto !important;
+}
+
+/* Reduzir Animações */
+.reduce-motion *,
+.reduce-motion *::before,
+.reduce-motion *::after {
+  animation-duration: 0.01ms !important;
+  animation-iteration-count: 1 !important;
+  transition-duration: 0.01ms !important;
+  scroll-behavior: auto !important;
+}
+
+/* Animações */
+@keyframes blob {
+  0% {
+    transform: translate(0px, 0px) scale(1);
+  }
+  33% {
+    transform: translate(30px, -50px) scale(1.1);
+  }
+  66% {
+    transform: translate(-20px, 20px) scale(0.9);
+  }
+  100% {
+    transform: translate(0px, 0px) scale(1);
+  }
+}
+
+.animate-blob {
+  animation: blob 7s infinite;
+}
+
+.animation-delay-2000 {
+  animation-delay: 2s;
+}
+
+.animation-delay-4000 {
+  animation-delay: 4s;
+}
+
+html {
+  scroll-behavior: smooth;
+}

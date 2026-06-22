@@ -314,47 +314,52 @@ export default function DashboardPage() {
               </button>
             </div>
 
-            <div className="grid grid-cols-3 gap-4">
+            <div className="grid grid-cols-3 gap-6">
               {[
-                { label: "A Fazer", value: metrics.pending, color: "bg-gray-500", percentage: metrics.total > 0 ? (metrics.pending / metrics.total) * 100 : 0 },
-                { label: "Fazendo", value: metrics.inProgress, color: "bg-blue-500", percentage: metrics.total > 0 ? (metrics.inProgress / metrics.total) * 100 : 0 },
-                { label: "Concluído", value: metrics.completed, color: "bg-emerald-500", percentage: metrics.total > 0 ? (metrics.completed / metrics.total) * 100 : 0 },
+                { label: "A Fazer", value: metrics.pending, color: "text-gray-500", percentage: metrics.total > 0 ? (metrics.pending / metrics.total) * 100 : 0 },
+                { label: "Fazendo", value: metrics.inProgress, color: "text-blue-500", percentage: metrics.total > 0 ? (metrics.inProgress / metrics.total) * 100 : 0 },
+                { label: "Concluído", value: metrics.completed, color: "text-emerald-500", percentage: metrics.total > 0 ? (metrics.completed / metrics.total) * 100 : 0 },
               ].map((item) => (
-                <div key={item.label} className="text-center">
-                  <div className="relative mb-3">
-                    <div className="w-24 h-24 mx-auto rounded-full bg-gray-100 flex items-center justify-center">
-                      <div className="text-center">
-                        <span className="block text-2xl font-bold text-black">{Math.round(item.percentage)}%</span>
-                        <span className="text-xs text-black">{item.value}</span>
-                      </div>
-                    </div>
-                    <svg className="absolute inset-0 w-24 h-24 transform -rotate-90">
+                <div key={item.label} className="flex flex-col items-center">
+                  <div className="relative w-28 h-28 mb-3">
+                    <svg className="w-full h-full transform -rotate-90" viewBox="0 0 100 100">
                       <circle
-                        cx="48"
-                        cy="48"
-                        r="44"
+                        cx="50"
+                        cy="50"
+                        r="42"
                         fill="none"
                         stroke="currentColor"
                         strokeWidth="8"
                         className="text-gray-200"
                       />
                       <motion.circle
-                        initial={{ strokeDasharray: "0 276" }}
-                        animate={{ strokeDasharray: `${(item.percentage / 100) * 276} 276` }}
+                        initial={{ strokeDasharray: "0 264" }}
+                        animate={{ strokeDasharray: `${(item.percentage / 100) * 264} 264` }}
                         transition={{ duration: 1, delay: 0.9 }}
-                        cx="48"
-                        cy="48"
-                        r="44"
+                        cx="50"
+                        cy="50"
+                        r="42"
                         fill="none"
                         stroke="currentColor"
                         strokeWidth="8"
                         strokeLinecap="round"
-                        className={item.color.replace("bg-", "text-")}
+                        className={item.color}
                       />
                     </svg>
+                    <div className="absolute inset-0 flex items-center justify-center">
+                      <div className="text-center">
+                        <span className="block text-2xl font-bold text-black">
+                          {Math.round(item.percentage)}%
+                        </span>
+                        <span className="text-xs text-black">{item.value}</span>
+                      </div>
+                    </div>
                   </div>
-                  <p className="text-sm font-medium text-black">{item.label}</p>
-                  <p className="text-xs text-black mt-1">{item.value} tarefas</p>
+
+                  <div className="text-center">
+                    <p className="text-sm font-semibold text-black">{item.label}</p>
+                    <p className="text-xs text-black mt-1">{item.value} tarefas</p>
+                  </div>
                 </div>
               ))}
             </div>
